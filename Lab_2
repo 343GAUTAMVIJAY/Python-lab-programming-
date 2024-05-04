@@ -92,3 +92,65 @@ months = ("January", "February", "March", "April", "May", "June", "July", "Augus
 middle_index = len(months) // 2
 first_half_months = months[:middle_index]
 print("First half of the months:", first_half_months)
+
+High level:
+
+11. Analyze the performance of investment instruments:
+
+instrument1 = [(int(input(f"Enter date for Instrument 1, Entry {i+1}: ")), float(input(f"Enter value for Instrument 1, Entry {i+1}: "))) for i in range(10)]
+instrument2 = [(int(input(f"Enter date for Instrument 2, Entry {i+1}: ")), float(input(f"Enter value for Instrument 2, Entry {i+1}: "))) for i in range(10)]
+instrument3 = [(int(input(f"Enter date for Instrument 3, Entry {i+1}: ")), float(input(f"Enter value for Instrument 3, Entry {i+1}: "))) for i in range(10)]
+
+start_date = int(input("Enter start date for analysis period: "))
+end_date = int(input("Enter end date for analysis period: "))
+
+growth_rates = []
+for instrument, name in zip([instrument1, instrument2, instrument3], ["Instrument 1", "Instrument 2", "Instrument 3"]):
+    start_value = next(value for date, value in instrument if date == start_date)
+    end_value = next(value for date, value in instrument if date == end_date)
+    growth_rate = ((end_value - start_value) / start_value) * 100
+    growth_rates.append((name, growth_rate))
+
+max_growth_rate = max(growth_rates, key=lambda x: x[1])
+print(f"The instrument with the highest growth rate ({max_growth_rate[1]:.2f}%) is {max_growth_rate[0]}.")
+
+12. Implement an inventory management system:
+
+warehouse1 = [(input(f"Enter product ID for Warehouse 1, Entry {i+1}: "), int(input(f"Enter quantity for Warehouse 1, Entry {i+1}: "))) for i in range(3)]
+warehouse2 = [(input(f"Enter product ID for Warehouse 2, Entry {i+1}: "), int(input(f"Enter quantity for Warehouse 2, Entry {i+1}: "))) for i in range(3)]
+warehouse3 = [(input(f"Enter product ID for Warehouse 3, Entry {i+1}: "), int(input(f"Enter quantity for Warehouse 3, Entry {i+1}: "))) for i in range(3)]
+
+product_id = input("Enter product identifier to check availability: ")
+
+total_quantity = sum(quantity for warehouse in [warehouse1, warehouse2, warehouse3] for _, quantity in warehouse if product_id in [product for product, _ in warehouse])
+
+if total_quantity > 0:
+    print(f"Total quantity of product {product_id} available across all warehouses: {total_quantity}")
+else:
+    print(f"Product {product_id} is out of stock.")
+
+13. snippet where you can input the comments and keywords:
+
+comments = []
+num_comments = int(input("Enter the number of comments: "))
+
+for i in range(num_comments):
+    comment_text = input(f"Enter comment {i+1}: ")
+    likes = int(input("Enter the number of likes for this comment: "))
+    comments.append((comment_text, likes))
+
+keywords = input("Enter keywords separated by spaces: ").split()
+
+keyword_freq = {}
+
+for comment, _ in comments:
+    words = comment.split()
+    for word in words:
+        if word in keywords:
+            keyword_freq[word] = keyword_freq.get(word, 0) + 1
+
+
+sorted_keywords = sorted(keyword_freq, key=keyword_freq.get, reverse=True)
+
+print("Top trending topics based on user comments:")
+print(sorted_keywords)
