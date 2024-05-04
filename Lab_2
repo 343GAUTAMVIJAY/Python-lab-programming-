@@ -1,0 +1,94 @@
+Low Level:
+
+1. Count vowels in each word:
+
+words = input("Enter words separated by spaces: ").split()
+for word in words:
+    vowel_count = sum(1 for letter in word if letter.lower() in 'aeiou')
+    print(f"{word}: {vowel_count}")
+
+2. Calculate average 
+
+age:people = []
+n = int(input("Enter the number of people: "))
+for _ in range(n):
+    name = input("Enter name: ")
+    age = int(input("Enter age: "))
+    people.append((name, age))
+
+total_age = sum(age for _, age in people)
+avg_age = total_age / len(people)
+print(f"Average age: {avg_age}")
+
+3. Find common elements in two lists:
+
+list1 = input("Enter elements of list 1 separated by spaces: ").split()
+list2 = input("Enter elements of list 2 separated by spaces: ").split()
+common = [elem for elem in list1 if elem in list2]
+print("Common elements:", common)
+
+4. Convert Celsius to Fahrenheit:
+
+celsius_temperatures = [float(temp) for temp in input("Enter temperatures in Celsius separated by spaces: ").split()]
+fahrenheit = [(temp * 9/5) + 32 for temp in celsius_temperatures]
+print("Temperatures in Fahrenheit:", fahrenheit)
+
+5. Remove duplicate names:
+
+names = input("Enter names separated by spaces: ").split()
+unique_names = list(set(names))
+print("Updated list:", unique_names)
+
+Medium Level:
+
+6. Convert list of tuples to dictionary:
+
+people = []
+n = int(input("Enter the number of people: "))
+for _ in range(n):
+    name = input("Enter name: ")
+    age = int(input("Enter age: "))
+    people.append((name, age))
+
+people_dict = {name: age for name, age in people}
+print("Dictionary:", people_dict)
+
+7. Sort list of tuples based on total score:
+
+students = []
+n = int(input("Enter the number of students: "))
+for _ in range(n):
+    name = input("Enter student's name: ")
+    math_score = int(input("Enter math score: "))
+    physics_score = int(input("Enter physics score: "))
+    chemistry_score = int(input("Enter chemistry score: "))
+    students.append((name, (math_score, physics_score, chemistry_score)))
+
+sorted_students = sorted(students, key=lambda x: sum(x[1]), reverse=True)
+print("Sorted students:", sorted_students)
+
+8. Compare two dates:
+
+date1 = tuple(int(x) for x in input("Enter first date (year month day): ").split())
+date2 = tuple(int(x) for x in input("Enter second date (year month day): ").split())
+
+if date1 < date2:
+    print("Date 1 is earlier than Date 2")
+elif date1 > date2:
+    print("Date 1 is later than Date 2")
+else:
+    print("Date 1 is the same as Date 2")
+
+9. Concatenate two tuples:
+
+tuple1 = tuple(input("Enter tuple 1 elements separated by space: ").split())
+tuple2 = tuple(input("Enter tuple 2 elements separated by space: ").split())
+concatenated_tuple = tuple1 + tuple2
+print("Concatenated tuple:", concatenated_tuple)
+
+10. Slice a tuple:
+
+months = ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+middle_index = len(months) // 2
+first_half_months = months[:middle_index]
+print("First half of the months:", first_half_months)
