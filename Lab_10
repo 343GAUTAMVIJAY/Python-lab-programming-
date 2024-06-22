@@ -1,0 +1,51 @@
+LOW:
+
+Write a function element wise addition that takes two numpy arrays of the same shape and returns a new array that is the element-wise sum of the input arrays.
+
+import numpy as np
+def array_sum(a1,a2):
+    res=a1+a2
+    return res
+
+arr1=np.array([[1,2,3],[4,5,6]])
+print(arr1)
+arr2=np.array([[6,5,4],[3,2,1]])
+print(arr2)
+result=array_sum(arr1,arr2)
+print("sum os array:")
+print(result)
+
+MEDIUM:
+
+You are given a 1D numpy array representing the daily closing prices of a stock over a period of time. Write a function moving_average that calculates the n-day moving average of the stock prices.
+
+import numpy as np
+def avg(a,n):
+
+    avg=np.average(a)
+    return avg
+a=[int(x)for x in input().split()]
+stock=np.array(a)
+print(stock)
+days=int(input("Enter no of days:\n"))
+print("The average of list is:",avg(stock,days))
+
+HIGH:
+
+You are given a 3D numpy array representing a colored image. Each pixel in the image has three values corresponding to the Red, Green, and Blue (RGB) channels. Write a function convert_to_grayscale that converts this colored image to a grayscale image using the following formula:
+Gray=0.2989×Red+0.5870×Green+0.1140×Blue
+
+import numpy as np
+def convert_to_grayscale(rgb):
+
+    		h,w,_=rgb.shape
+    		gray=np.zeros((h,w), dtype=rgb.dtype)
+    		for i in range(h):
+        			for j in range(w):
+            				r,g,b=rgb[i,j]
+            				gray[i,j]=0.2989*r+0.5870*g+0.1140*b
+    		return gray
+colour=np.array([[[255,0,0], [0,255,0], [0,0,255]], [[255,255,0], [255,0,255], [0,255,255]], [[0,255,255], [255,0,255], [255,255,0]]])
+print(f"the gray image: \n{convert_to_grayscale(colour)}")
+
+
