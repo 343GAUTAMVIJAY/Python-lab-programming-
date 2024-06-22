@@ -15,6 +15,8 @@ result=array_sum(arr1,arr2)
 print("sum os array:")
 print(result)
 
+****************************************************
+
 MEDIUM:
 
 You are given a 1D numpy array representing the daily closing prices of a stock over a period of time. Write a function moving_average that calculates the n-day moving average of the stock prices.
@@ -29,6 +31,8 @@ stock=np.array(a)
 print(stock)
 days=int(input("Enter no of days:\n"))
 print("The average of list is:",avg(stock,days))
+
+****************************************************
 
 HIGH:
 
@@ -48,4 +52,4 @@ def convert_to_grayscale(rgb):
 colour=np.array([[[255,0,0], [0,255,0], [0,0,255]], [[255,255,0], [255,0,255], [0,255,255]], [[0,255,255], [255,0,255], [255,255,0]]])
 print(f"the gray image: \n{convert_to_grayscale(colour)}")
 
-
+****************************************************
